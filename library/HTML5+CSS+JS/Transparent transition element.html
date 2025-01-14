@@ -1,0 +1,39 @@
+<div class="Page">
+	<div class="fade-in-element">Element</div>
+	<div class="fade-in-element">Element</div>
+	<div class="fade-in-element">Element</div>
+	<div class="fade-in-element">Element</div>
+	<div class="fade-in-element">Element</div>
+	<div class="fade-in-element">Element</div>
+	<div class="fade-in-element">Element</div>
+	<div class="fade-in-element">Element</div>
+	<div class="fade-in-element">Element</div>
+</div>
+
+<style>
+	.fade-in-element {
+		width: 200px;
+		height: 200px;
+		border: 1px solid black;
+		opacity: 0;
+		transition: opacity 1s; 
+	}
+</style>
+
+<script>
+	const fadeElements = document.querySelectorAll('.fade-in-element');
+	
+	function checkFadeElements() {
+	  fadeElements.forEach((element) => {
+		const elementTop = element.getBoundingClientRect().top;
+		const windowHeight = window.innerHeight;
+
+		if (elementTop < windowHeight * 0.75) {
+		  element.style.opacity = 1;
+		}
+	  });
+	}
+
+	document.addEventListener('scroll', checkFadeElements);
+</script>
+

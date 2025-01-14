@@ -1,0 +1,91 @@
+<div style="display:flex; width:100vw; height:100vh; align-items:center; justify-content:center;">
+	<div class="wrapper">
+		<div class="wrapperTile" style="--i:4; --clr:rgb(216,218,247); --clr-alt:rgb(206,208,237);">
+			<input type="text" placeholder="Input name" name="name" />
+		</div>
+		<div class="wrapperTile" style="--i:3; --clr:rgb(194,197,243); --clr-alt:rgb(184,187,233);">
+			<input type="text" placeholder="Input phone" name="phone" />
+		</div>
+		<div class="wrapperTile" style="--i:2; --clr:rgb(152,157,235); --clr-alt:rgb(142,147,225);">
+			<input type="text" placeholder="Input E-mail" name="email" />
+		</div>
+		<div class="wrapperTile" style="--i:1; --clr:rgb(87,92,181); --clr-alt:rgb(77,82,171);">
+			<button>Submit</button>
+		</div>
+	</div>
+</div>
+
+<style>
+	/*Decoration of elements*/
+	.wrapper {
+		position: relative;
+		transform: skewY(-14deg);
+	}
+
+	.wrapperTile {
+		position: relative;
+		height: 40px;
+		width: 200px;
+		background: var(--clr);
+		transition: 0.3s;
+		z-index: var(--i);
+	}
+
+		.wrapperTile:before {
+			position: absolute;
+			content: "";
+			background: inherit;
+			top: 0;
+			left: -40px;
+			width: 40px;
+			height: 40px;
+			transform-origin: right;
+			transform: skewY(45deg);
+			transition: 0.3s;
+			z-index: -1;
+		}
+
+		.wrapperTile::after {
+			position: absolute;
+			content: "";
+			background: inherit;
+			width: 200px;
+			height: 40px;
+			top: -40px;
+			left: 0;
+			transform-origin: bottom;
+			transform: skewX(45deg);
+			transition: 0.3s;
+			z-index: -1;
+		}
+
+		.wrapperTile:hover {
+			transform: translateX(-40px);
+			background: var(--clr-alt);
+		}
+
+		.wrapperTile:focus-within {
+			transform: translateX(-40px);
+		}
+
+	/*Style for input and button*/
+	.wrapper input {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		padding-left: 10px;
+		outline: none;
+		border: none;
+		background:inherit;
+	}
+
+	.wrapperTile button {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		padding-left: 10px;
+		border: none;
+		background: inherit;
+	}
+
+</style>

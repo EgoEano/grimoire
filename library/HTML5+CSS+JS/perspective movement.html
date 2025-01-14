@@ -1,0 +1,29 @@
+<div class="parallax-element">
+	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/800px-Wikipedia-logo-v2.svg.png" style="height:300px; width:300px;"/>
+</div>
+
+<style>
+.parallax-element {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  transform-origin: center center;
+  transition: transform 0.2s ease-out;
+  perspective: 1000px;
+}
+</style>
+
+<script>
+	const element = document.querySelector('.parallax-element');
+
+	document.addEventListener('mousemove', (event) => {
+	  const { clientX, clientY } = event;
+	  const centerX = window.innerWidth / 2;
+	  const centerY = window.innerHeight / 2;
+	  const deltaX = clientX - centerX;
+	  const deltaY = clientY - centerY;
+	  const tiltX = deltaY / centerY;
+	  const tiltY = deltaX / centerX;
+	  element.style.transform = `rotateX(${-tiltX * 15}deg) rotateY(${tiltY * 15}deg)`;
+	});
+</script>

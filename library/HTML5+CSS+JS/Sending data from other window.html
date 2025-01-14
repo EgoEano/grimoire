@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<script>
+		var link = `https://www.wikipedia.org/`;
+		
+		window.addEventListener('message', (event) => {
+			if (event.origin !== window.location.origin) return;
+			
+			console.log(event.data);
+		});
+		
+		var win = window.open(link, "hello", "width=200,height=200");
+		
+		win.onload = () => {
+			
+			const msg = {
+				title: "hello",
+			};
+			
+			window.opener.postMessage(msg, '*');
+			
+			setTimeout(function () {
+				window.close();
+			}, 100);
+		};
+	</script>
+</body>
+</html>

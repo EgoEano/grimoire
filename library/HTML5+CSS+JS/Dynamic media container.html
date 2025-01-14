@@ -1,0 +1,38 @@
+
+<div class="Container">
+  <div class="Card">Карточка 1</div>
+  <div class="Card">Карточка 2</div>
+  <div class="Card">Карточка 3</div>
+  <div class="Card">Карточка 4</div>
+</div>
+<style>
+
+.Container {
+	display: grid;
+	gap: 20px;
+}
+
+@media (max-width: 1023px) { /*Mobile version*/
+	.Container {
+		grid-template: 1fr / repeat(1, 1fr);
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1799px) { /*Desktop version*/
+	.Container {
+		grid-template: 1fr / repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1800px) { /*Large monitors version*/
+	.Container {
+		grid-template: 1fr / repeat(4, 1fr);
+	}
+}
+
+.Card {
+	padding: 20px;
+	background-color: #f2f2f2;
+	border: 1px solid #ccc;
+}	
+</style>

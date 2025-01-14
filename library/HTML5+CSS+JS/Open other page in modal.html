@@ -1,0 +1,21 @@
+<div>
+    <button onclick="openModal()">Открыть другой сайт</button>
+    <div id="modalContainer"></div>
+</div>
+
+<script>
+    function openModal() {
+		// For opening inner site domain or site without same origin politics
+		
+        var url = 'https://www.wikipedia.org/';
+
+        var iframe = document.createElement('iframe');
+        iframe.src = url;
+        iframe.width = '800';
+        iframe.height = '600';
+
+        var modalContainer = document.getElementById('modalContainer');
+        modalContainer.innerHTML = '';
+        modalContainer.appendChild(iframe);
+    }
+</script>

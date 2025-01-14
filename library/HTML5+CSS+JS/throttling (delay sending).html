@@ -1,0 +1,29 @@
+<div style="display:flex; height:100vh; justify-content:center; align-items:center;">
+	<input type="button" class="btn" value="throttle" onclick='throttledLearn("more violence!")'/>
+</div>
+
+<style>
+
+</style>
+	
+<script>
+	function throttle(func, delay, ...args) {
+		var lastCall;
+		return function (...args) {
+			if (!lastCall) {
+				func(...args);
+				lastCall = 1;
+				setTimeout(() => {
+					lastCall = null;
+				}, delay);
+			};
+		};
+	};
+
+	function msg(text) {
+		console.log(text);
+	};
+	
+	var throttledLearn = throttle(msg, 1000);	
+</script>
+

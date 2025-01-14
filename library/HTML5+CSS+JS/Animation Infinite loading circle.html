@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Infinite loading circle</title>
+    <style>
+        .spinner {
+            width: 80px;
+            height: 80px;
+			border: 10px solid;
+			border-color: red transparent transparent transparent;
+			border-radius: 50%;
+			animation: rotation 1.5s linear infinite, colorChanges 1.5s infinite;
+        }
+		
+		@keyframes rotation {
+			to { transform: rotate(365deg); }
+		}
+		
+		@keyframes colorChanges {
+			0% {
+				border-color: cyan transparent transparent transparent;
+			}
+			50% {
+				border-color: transparent;
+			}
+			100% {
+				border-color: cyan transparent transparent transparent;
+			}
+		}
+    </style>
+</head>
+<body>
+    <div class="spinner"></div>
+</body>
+</html>
