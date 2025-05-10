@@ -1,0 +1,107 @@
+package com.eande.notestodo.utils;
+
+import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/*
+        actionHandler.addClick(R.id.journal_entity_toolbar_button_back, (v) -> {
+            this.finish();
+        });
+
+        actionHandler.addTouch(R.id.journal_entity_scroll_view, (v, e) -> {
+            if (e.getAction() == MotionEvent.ACTION_UP) {
+                this.finish();
+            }
+        });
+     */
+public class ViewActionHandler {
+    private Map<Integer, ClickAction> clickActions;
+    private Map<Integer, TouchAction> touchActions;
+
+    private Context _context;
+
+    public View.OnClickListener ocl;
+    public View.OnTouchListener otl;
+
+    public ViewActionHandler(Context context) {
+        _context = context;
+        clickActions = new HashMap<>();
+        touchActions = new HashMap<>();
+
+        ocl = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int id = v.getId();
+                if (clickActions.containsKey(id)) {
+                    clickActions.get(id).execute(v);
+                }
+            }
+        };
+
+        otl = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent e) {
+                int id = v.getId();
+                if (touchActions.containsKey(id)) {
+                    try {
+                        touchActions.get(id).execute(v, e);
+                    } catch (Exception ex) {
+                        Log.e("ViewActionHandler_log", ex.toString());
+                    }
+                }
+                return false;
+            }
+        };
+    }
+
+    public <T> void addClick(@NonNull int id, @NonNull ClickAction action) {
+        clickActions.put(id, action);
+        View v = ((Activity) _context).findViewById(id);
+        if (v != null) {
+            v.setOnClickListener(ocl);
+        }
+    }
+
+    public <T> void addClick(@NonNull View view, @NonNull int id, @NonNull ClickAction action) {
+        clickActions.put(id, action);
+        View v = view.findViewById(id);
+        if (v != null) {
+            v.setOnClickListener(ocl);
+        }
+    }
+
+    public <T> void addTouch(@NonNull int id, @NonNull TouchAction action) {
+        touchActions.put(id, action);
+        View v = ((Activity) _context).findViewById(id);
+        if (v != null) {
+            v.setOnTouchListener(otl);
+        }
+    }
+
+    public <T> void addTouch(@NonNull View view, @NonNull int id, @NonNull TouchAction action) {
+        touchActions.put(id, action);
+        View v = view.findViewById(id);
+        if (v != null) {
+            v.setOnTouchListener(otl);
+        }
+    }
+
+    @FunctionalInterface
+    public interface ClickAction {
+        void execute(View view);
+    }
+
+    @FunctionalInterface
+    public interface TouchAction {
+        void execute(View view, MotionEvent event);
+    }
+}
+
