@@ -18,10 +18,11 @@ It’s designed as a **reference library** — a grimoire to return to when memo
 ## 🗂 Structure
 | Folder | Description |
 |--------|--------------|
-| **`almaMater/`** | Core algorithms, data structures, and theoretical notes. |
-| **`methods-and-instructions/`** | Step-by-step guides and system setup notes (Docker, SSL, WSL, etc). |
-| **`configs/`** | Reusable configuration examples and templates. |
-| **`snippets/`** | Handy code snippets and small reusable utilities. |
+| **`knowledge/`** | Base of initial and theoretical knowledge. |
+| **`knowledge/alma-mater/`** | Core algorithms, data structures, and theoretical notes. |
+| **`knowledge/methods-and-instructions/`** | Step-by-step guides and system setup notes (Docker, SSL, WSL, etc). |
+| **`forge/`** | Raw developments and experiments. |
+| **`forge/snippets/`** | Handy code snippets and small reusable utilities. |
 
 *(Folders may evolve as new material is added.)*
 
