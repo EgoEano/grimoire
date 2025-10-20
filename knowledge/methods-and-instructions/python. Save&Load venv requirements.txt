@@ -1,0 +1,7 @@
+Saving:
+	1. Activate the target venv
+	2. pip freeze > requirements.txt
+
+Loading:
+	1. Activate the target venv
+	2. pip install -r requirements.txt

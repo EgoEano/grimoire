@@ -1,0 +1,42 @@
+INSTALLATION
+0. The easiest way to install an AVD is through Android Studio by creating a virtual device. The manual installation process is described below.
+
+1. Install the latest versions of Java (OpenJDK) and cmdline-tools, then set the environment variable path (JAVA_HOME).
+
+1.1 Execute commands in the following path:
+	C:\Users\<username>\AppData\Local\Android\Sdk\cmdline-tools\latest\bin
+
+1.2 During the first setup, you may need to run:
+	sdkmanager --licenses
+
+2.1 Install essential tools:
+	sdkmanager "platform-tools" "emulator"
+
+2.2 Install packages (for example, Android 33 with Play Store image):
+	sdkmanager "platforms;android-33" "system-images;android-33;google_apis_playstore;x86_64"
+
+3.1 To list available system images (image_name):
+	sdkmanager --list
+
+3.2 To list available device types (device_type):
+	avdmanager list devices
+
+4. Create a virtual device:
+	avdmanager create avd -n <name> -d <device_type> -k <image_name>
+
+Done. The emulator is ready to be launched.
+
+
+////////////////////////////////
+LAUNCH
+0. The tools are located in the following paths (you can add them to the PATH variable for convenience):
+	C:\Users<username>\AppData\Local\Android\Sdk\emulator
+	C:\Users<username>\AppData\Local\Android\Sdk\platform-tools
+
+1. After adding the paths or navigating to the folder, view the available devices:
+	emulator -list-avds
+
+2. Select a device to emulate:
+	emulator -avd <name>
+
+The device is now running.

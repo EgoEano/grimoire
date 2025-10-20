@@ -1,0 +1,30 @@
+Перезапуск сервера
+	adb kill-server
+	adb start-server
+
+Запуск без snapshot (state прошлого запуска)
+	emulator -avd <device-name> -no-snapshot-load -no-boot-anim
+
+Удаляем снапшот
+	del "%USERPROFILE%\.android\avd\<name_of_device>.avd\snapshots\default_boot\snapshot.pb"
+
+Перегенерация adbkey 
+	del %USERPROFILE%\.android\adbkey*
+	adb kill-server && adb start-server
+
+
+1. Server restart
+	adb kill-server
+	adb start-server
+
+2. Launch without snapshot (previous session state) to check that the problem is in the module
+	emulator -avd <name_of_device> -no-snapshot-load -no-boot-anim
+
+3.1 If emulator launches - Delete snapshot
+	del "%USERPROFILE%.android\avd<name_of_device>.avd\snapshots\default_boot\snapshot.pb"
+	
+3.2 Else - later
+
+4. Regenerate adbkey
+	del %USERPROFILE%.android\adbkey*
+	adb kill-server && adb start-server
