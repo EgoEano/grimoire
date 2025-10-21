@@ -1,0 +1,77 @@
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center; width: 100%; height: 100%;">
+	<input type='checkbox' class='switchBox' style="--size:14px;" value='' />
+</div>
+<!--Size can be specified both in styles and in the class itself-->
+<!--Size can be omitted from the master class, but specified on the page for a separate class-->
+
+<style>
+    .sizeCls {
+        --size: 14px;
+    }
+
+    .switchBox {
+        position: relative;
+        width: var(--size);
+        height: var(--size);
+    }
+
+    .switchBox:before {
+        content: "";
+        position: relative;
+        left: 50%;
+        top: 50%;
+        display: flex;
+        width: 200%;
+        height: 110%;
+        transform: translate(-50%, -50%);
+		transition: transform 0.5s ease, background 0.8s ease;
+        border-radius: var(--size);
+		box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        background: rgb(180, 180, 180);
+		
+    }
+	
+    .switchBox:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: flex;
+        width: 80%;
+        height: 80%;
+        transform: translate(-100%, -50%);
+		transition: transform 0.5s ease, background 0.8s ease;
+        border-radius: var(--size);
+        background: white;
+	}
+
+    .switchBox:checked:before {
+        content: "";
+        position: relative;
+        left: 50%;
+        top: 50%;
+        display: flex;
+        width: 200%;
+        height: 110%;
+        transform: translate(-50%, -50%);
+		transition: transform 0.5s ease, background 0.8s ease;
+        border-radius: var(--size);
+		box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        background: #55b183;
+		
+    }
+	
+    .switchBox:checked:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: flex;
+        width: 80%;
+        height: 80%;
+        transform: translate(0%, -50%);
+		transition: transform 0.5s ease, background 0.8s ease;
+        border-radius: var(--size);
+        background: white;
+	}
+</style>

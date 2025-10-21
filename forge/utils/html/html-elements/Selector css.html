@@ -1,0 +1,25 @@
+<div class="testo" style="display:flex; height:100vh; justify-content:center; align-items:center;">
+    <div class="button-container">
+        <button class="show-div">Show</button>
+        <div class="hidden-div">Hidden text</div>
+    </div>
+</div>
+
+
+
+<style>
+    .hidden-div {
+        display: none;
+        position: absolute;
+        background-color: #ccc;
+        padding: 10px;
+    }
+
+    .show-div:hover ~ .hidden-div {
+        display: block;
+    }
+
+    .hidden-div:hover {
+        display: block;
+    }
+</style>

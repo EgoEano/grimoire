@@ -1,0 +1,79 @@
+<a class="popup-open" href="#">Open popup</a>
+<div class="popup-fade">
+	<div class="popup">
+		<a class="popup-close" href="#">Close</a>
+		<p>Popup windows are very useful...</p>
+	</div>
+</div>
+
+<style>
+	.popup-fade {
+		display: none;
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.7);
+		cursor: pointer;
+		z-index: 9999;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.popup-fade.active {
+		display: block;
+		opacity: 1;
+	}
+
+	.popup {
+		position: absolute;
+		top: 20%;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 20px;
+		width: 360px;
+		background: #fff;
+		border: 1px solid orange;
+		border-radius: 4px;
+		z-index: 10000;
+		cursor: default;
+	}
+
+	.popup-close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+	const popupFade = document.querySelector('.popup-fade');
+	const popupOpen = document.querySelector('.popup-open');
+	const popupClose = document.querySelector('.popup-close');
+
+	// Открытие попапа
+	popupOpen.addEventListener('click', (e) => {
+		e.preventDefault();
+		popupFade.classList.add('active');
+	});
+
+	// Закрытие по кнопке
+	popupClose.addEventListener('click', (e) => {
+		e.preventDefault();
+		popupFade.classList.remove('active');
+	});
+
+	// Закрытие по клику вне окна
+	popupFade.addEventListener('click', (e) => {
+		if (!e.target.closest('.popup')) {
+		popupFade.classList.remove('active');
+		}
+	});
+
+	// Закрытие по Esc
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+		popupFade.classList.remove('active');
+		}
+	});
+});
+</script>

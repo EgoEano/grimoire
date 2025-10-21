@@ -18,12 +18,13 @@ It’s designed as a **reference library** — a grimoire to return to when memo
 ## 🗂 Structure
 | Folder | Description |
 |--------|--------------|
-| **`knowledge/`** | Base of initial and theoretical knowledge. |
-| **`knowledge/alma-mater/`** | Core algorithms, data structures, and theoretical notes. |
-| **`knowledge/methods-and-instructions/`** | Step-by-step guides and system setup notes (Docker, SSL, WSL, etc). |
 | **`forge/`** | Raw developments and experiments. |
 | **`forge/utils/`** | Handy code snippets and small reusable utilities. |
 | **`forge/template-in-process/`** | Вevelopments and templates in intermediate stages. |
+| **`knowledge/`** | Base of initial and theoretical knowledge. |
+| **`knowledge/alma-mater/`** | Core algorithms, data structures, and theoretical notes. |
+| **`knowledge/methods-and-instructions/`** | Step-by-step guides and system setup notes (Docker, SSL, WSL, etc). |
+| **`lib/`** | Developments, methods, fragments and tools. |
 
 
 *(Folders may evolve as new material is added.)*
