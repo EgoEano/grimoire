@@ -1,0 +1,23 @@
+docker-compose down  - Clean old builds
+docker-compose up --build -d — Build and launch
+
+docker build -t <name> . — Making image (from dir with dockerfile)
+docker run -d -p 80:80 <name> - Launch docker image (port 80)
+
+docker ps -a – Containers list (-a – include stopped)
+
+docker stop <id> - Stopping container
+docker rm <name/id> - Deleting container
+
+docker volume ls - View volumes
+docker volume rm <name> - Deleting volume with name
+docker volume prune – Deleting ALL volumes
+
+docker rmi <image_id_or_name> - Deleting images 
+docker container prune - Deleting all stopped containers (Exited или Created)
+docker image prune - Deleting all dangling images 
+docker system prune - Deleting all unused and stopped in system (images, container, data) (need to be carefull)
+
+docker exec -u root -it <id> sh – Connect to a container (user - root)
+docker exec -it <container_id> sh - Connect with terminal in container
+docker exec -it <container> psql -U <username> - Connect with psql in container 

@@ -3,7 +3,6 @@ import type { Request, Response, NextFunction } from 'express';
 import http from "http";
 import https from 'https';
 import fs from 'fs';
-import { Server as SocketIOServer, Socket, Server } from "socket.io";
 import { createAdapter as createSocketIORedisAdapter } from "@socket.io/redis-adapter";
 import dotenv from 'dotenv';
 import {fileURLToPath} from 'url';
@@ -19,16 +18,13 @@ import {setAllowedOrigins, setBlockedMethods} from './core/middleware/guards/ori
 import {userAgentWhiteList} from './core/middleware/guards/agentGuard.js';
 import {extensionGuard} from './core/middleware/guards/extensionGuard.js';
 import {initRoutesWhitelist} from './core/middleware/guards/routesWhitelist.js';
-import {startAllJobs} from './core/services/jobs/index.js';
+import {startAllJobs} from './core/services/jobs/jobs.js';
 import Logger from "./core/middleware/loggers/loggerService.js";
 
 //Routes import
 import {usingRoutes} from '../server/modules/entries.js';
 import { RedisManager } from "./core/services/connection/redisService.js";
-import { createSocketServer } from "./core/services/connection/socketFactory_socketIO.js";
-import { SocketEventBus } from "./core/services/connection/socketEventBusFactory.js";
 import { SocketBusSingleton } from "./core/services/connection/socketEventBusSingleton.js";
-import { SocketEvents } from "./core/types/socketEventTypes.js";
 
 
 process.on('uncaughtException', (err) => {
@@ -169,10 +165,15 @@ const ioRedisAdapter = createSocketIORedisAdapter(
     redis_pubClient.getClient(), 
     redis_subClient.getClient()
 );
+
+// Use environment variable for allowed CORS origin, fallback to '*'
+const SOCKETIO_CORS_ORIGIN = process.env.SOCKETIO_CORS_ORIGIN || "*";
+const SOCKETIO_CORS_METHODS = (process.env.SOCKETIO_CORS_METHODS || "GET,POST").split(',');
+
 const socketIO_options = {
     cors: {
-        origin: "*", //#FIXME настроить передачу домена клиента через env
-        methods: ["GET", "POST"]
+        origin: SOCKETIO_CORS_ORIGIN,
+        methods: SOCKETIO_CORS_METHODS
     }
 };
 SocketBusSingleton.init({
