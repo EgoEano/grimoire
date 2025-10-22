@@ -102,8 +102,11 @@
 	npm install socket.io "@socket.io/redis-adapter"
 
 
-# Installing pool for Postres connection 
+# Installing pool for Postgres connection 
 	npm install pg
+	
+# Installing types for Postgres
+	npm i --save-dev @types/pg
 
 
 # Installing pool for Redis connection 

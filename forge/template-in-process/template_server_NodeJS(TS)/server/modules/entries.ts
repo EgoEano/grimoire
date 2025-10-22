@@ -3,19 +3,9 @@ import type {
 } from '../core/types/types.js';
 
 import mainRoutes from './main/routes.js';
-import authRoutes from './auth/routes.js';
-import chatRoutes from './chat/routes.js';
 
-
+// mainRoutes with root routes must always be at the last position
 export const usingRoutes: RouteGroup[] = [
-  {
-    path: '/auth',
-    route: authRoutes as any
-  },
-  {
-    path: '/chats',
-    route: chatRoutes as any
-  },
   {
     path: '/',
     route: mainRoutes as any
