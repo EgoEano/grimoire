@@ -1,0 +1,13 @@
+1. Create folder for link
+2. mklink /J <path> <source>
+	where:
+		/J – symlink type
+		/D – junction link type
+		<path> - path to link folder C:\path\to\folder\linkName (the folder itself should not exist)
+		<source> - target folder path
+
+3.1 Symlink example
+	mklink /D C:\path\to\symlink D:\folder\path\target
+	
+3.2 Junction example
+	mklink /J C:\path\to\symlink D:\folder\path\target
