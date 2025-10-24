@@ -25,6 +25,8 @@ if %ERRORLEVEL% neq 0 (
 )
 
 :: 1.4 Compile server code in one file (index.js)
+
+@REM ТУТ ПРОБЛЕМА В ИМЕНАХ server.js И index.js - НУЖНО ПОМЕНЯТЬ ИМЕНА ГРАМОТНО У ВСЕХ
 echo Building server...
 cmd /c "npx @vercel/ncc build dist/server.js -o dist --external dotenv --external bcrypt > log_server_build.txt 2>&1"
 if %ERRORLEVEL% neq 0 (

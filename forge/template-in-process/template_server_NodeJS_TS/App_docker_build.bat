@@ -9,10 +9,11 @@ set LOG=log_app_build.txt
 set EXPORT_DIR=C:\Projects\docker_export
 set WSL_EXPORT_DIR=/mnt/c/Projects/docker_export
 set WSL_IMPORT_DIR=/mnt/x/iHolding/dev/cryptoProject1
-set EXPORT_TAR=app.tar
-set EXPORT_ARCHIVE=aiAmnToken.deploy.tar.gz
-set IMAGE_NAME=ai-amamah-token-app:latest
-set VOLUME_NAME=cryptoproject1_pgdata
+set WSL_IMPORT_DIR=/mnt/x/transitRepos/grimoire/forge/template-in-process/template_server_NodeJS_TS
+set EXPORT_TAR=test_app.tar
+set EXPORT_ARCHIVE=testProject.deploy.tar.gz
+set IMAGE_NAME=test-project-app:latest
+set VOLUME_NAME=testproject_pgdata
 set WSL_DISTRO=Ubuntu
 set BUILD_ID=%date%_%time%
 

@@ -15,17 +15,17 @@ import compression from 'compression';
 import {rawBodySaverForExpressJs} from './core/middleware/guards/helpers.js';
 import {applyRateLimiter} from './core/middleware/guards/rateLimiter.js';
 import {setAllowedOrigins, setBlockedMethods} from './core/middleware/guards/originsControl.js';
-import {userAgentWhiteList} from './core/middleware/guards/agentGuard.js';
+import {userAgentBlackList, userAgentWhiteList} from './core/middleware/guards/agentGuard.js';
 import {extensionGuard} from './core/middleware/guards/extensionGuard.js';
 import {initRoutesWhitelist} from './core/middleware/guards/routesWhitelist.js';
 import {startAllJobs} from './core/services/jobs/jobs.js';
+import { initConnections } from "./core/services/connection/pool.js";
 import Logger from "./core/middleware/loggers/loggerService.js";
 
 //Routes import
-import {usingRoutes} from '../server/modules/entries.js';
+import { usingRoutes } from "./modules/entries.js";
 import { RedisManager } from "./core/services/connection/redisService.js";
 import { SocketBusSingleton } from "./core/services/connection/socketEventBusSingleton.js";
-
 
 process.on('uncaughtException', (err) => {
     Logger.error({
@@ -107,12 +107,19 @@ setAllowedOrigins({
     additionalOrigins: envOrigins,
 }); // Allowed Origins
 setBlockedMethods(app); // Blocking bot's methods
-userAgentWhiteList(app); // Accepting only target agents
+
+// Use only one. As usually - userAgentBlackList for web, userAgentWhiteList - for applications
+userAgentBlackList(app); // Blocking setted suspicious agents
+//userAgentWhiteList(app); // Accepting only target agents
+
 extensionGuard(app); // Blocking extensions searching
 initRoutesWhitelist({
     app: app,
     admittedRoutes: usingRoutes
 }); // Routes whitelist
+
+// Initialize pools
+initConnections();
 
 // Routes input from usingRoutes
 usingRoutes.forEach(r => app.use(r.path, r.route.router));
@@ -138,7 +145,7 @@ startAllJobs();
 const workHost: string = (isDev ? DEV_HOST : INNER_HOST) || 'localhost';
 const workPort: number = parseInt((isDev ? DEV_PORT : INNER_PORT) ?? '') || 12354;
 
-const isHTTPS = true;
+const isHTTPS = false;
 let server;
 if (isHTTPS) {
     const options = {

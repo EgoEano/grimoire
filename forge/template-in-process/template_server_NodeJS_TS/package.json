@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server:build:prod": "tsc",
-    "server:start:prod": "cross-env NO_COLOR=true NODE_ENV=production node dist/index.js",
+    "server:start:prod": "cross-env NO_COLOR=true NODE_ENV=development node dist/index.js",
     "server:start:dev": "cross-env NO_COLOR=true NODE_ENV=development nodemon"
   },
   "keywords": [],

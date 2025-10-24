@@ -1,15 +1,17 @@
-import {pool} from '../../services/connection/pool.js';
+import {getPools} from '../../services/connection/pool.js';
 
 //#region Types
 type LogParams = {
     message: string;
     source: string | null;
+    isWriteDB?: boolean;
 };
 
 type ErrorParams = {
     message: string;
     source: string | null;
     error?: any;
+    isWriteDB?: boolean;
 };
 
 type WriterParams = {
@@ -35,37 +37,43 @@ const LOG_LEVELS = {
 
 
 class Logger {
-    debug({message, source}: LogParams): void {
+    debug({message, source, isWriteDB = true}: LogParams): void {
         console.log(`[DEBUG] ${this.formatDate()} - ${message}`);
-        this.writeToDatabase({
-            levelKey: 'debug', 
-            message, 
-            source,
-            error: null
-        });
+        if (isWriteDB) {
+            // this.writeToDatabase({
+            //     levelKey: 'debug', 
+            //     message, 
+            //     source,
+            //     error: null
+            // });
+        }
     }
 
-    log({message, source}: LogParams): void {
+    log({message, source, isWriteDB = true}: LogParams): void {
         console.log(`[LOG] ${this.formatDate()} - ${message}`);
-        this.writeToDatabase({
-            levelKey: 'log', 
-            message, 
-            source,
-            error: null
-        });
+        if (isWriteDB) {
+            // this.writeToDatabase({
+            //     levelKey: 'log', 
+            //     message, 
+            //     source,
+            //     error: null
+            // });
+        }
     }
 
-    warn({message, source}: LogParams): void {
+    warn({message, source, isWriteDB = true}: LogParams): void {
         console.warn(`[WARN] ${this.formatDate()} - ${message}`);
-        this.writeToDatabase({
-            levelKey: 'warn', 
-            message, 
-            source,
-            error: null
-        });
+        if (isWriteDB) {
+            // this.writeToDatabase({
+            //     levelKey: 'warn', 
+            //     message, 
+            //     source,
+            //     error: null
+            // });
+        }
     }
 
-    error({ message, error, source = null }: ErrorParams): void {
+    error({ message, error, source = null, isWriteDB = true }: ErrorParams): void {
         console.error(`[ERROR] ${this.formatDate()} - ${message}`);
         let errs: NormalizedError[] = [];
         if (error) {
@@ -85,12 +93,14 @@ class Logger {
             console.groupEnd();
         }  
 
-        this.writeToDatabase({
-            levelKey: 'error', 
-            message, 
-            source,
-            error: errs
-        });
+        if (isWriteDB) {
+            // this.writeToDatabase({
+            //     levelKey: 'error', 
+            //     message, 
+            //     source,
+            //     error: errs
+            // });
+        }
     }
 
     alignErrors(errors: unknown): NormalizedError[] {
@@ -140,6 +150,7 @@ class Logger {
     }
 
     async writeToDatabase({levelKey, message, error = null, source = null }: WriterParams) {
+        const {pool} = getPools();
         const level = LOG_LEVELS[levelKey as keyof typeof LOG_LEVELS];
         try {
             await pool.query(
