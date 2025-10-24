@@ -1,0 +1,7 @@
+nmap -sn [255.255.255.255]/[CIDR] — scan network, address (example - 192.168.1.1), with mask CIDR:
+	/32 — mask 255.255.255.255  - 1 IP (что указан)
+	/24 — mask 255.255.255.0  - 256 IP
+	/16 — mask 255.255.0.0  - 65 536 IP
+	/8 — mask 255.0.0.0  - 16 777 216 IP
+
+

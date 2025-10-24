@@ -1,0 +1,5 @@
+ls -lah – list the contents of the current directory (“-l” = long format, “-a” = show hidden files, “-h” = human-readable sizes)
+mkdir <name> - create a new folder in the current dirrectory
+rm -rd <[path/]name> - remove (delete) a directory and its contents recursively 
+cp <sourcePath> <destinationPath> - copy file of dirrectory to path
+ip route | grep default – shows the default network route on a Linux system

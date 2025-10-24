@@ -1,0 +1,10 @@
+Launch redis
+
+1. sudo apt install redis-server (if not installed redis)
+2. sudo service redis-server start
+3. redis-cli
+
+Checking:
+	redis-cli ping — «PONG» as response
+
+Default redis address -  'redis://127.0.0.1:6379' 
