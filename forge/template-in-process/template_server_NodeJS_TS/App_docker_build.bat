@@ -5,7 +5,7 @@ cd /d %~dp0
 :: ==========================
 ::   Configuration
 :: ==========================
-set LOG=log_app_build.txt
+set LOG=log_app_docker.txt
 set EXPORT_DIR=C:\Projects\docker_export
 set WSL_EXPORT_DIR=/mnt/c/Projects/docker_export
 set WSL_IMPORT_DIR=/mnt/x/iHolding/dev/cryptoProject1

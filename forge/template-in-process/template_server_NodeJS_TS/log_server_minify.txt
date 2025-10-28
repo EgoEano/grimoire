@@ -1,4 +1,0 @@
-
-  dist\index.min.js  2.3mb
-
-Done in 2452ms

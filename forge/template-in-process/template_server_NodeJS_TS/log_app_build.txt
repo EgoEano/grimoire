@@ -1,1 +1,21 @@
+Starting build... 
+ncc: Version 0.38.3
+ncc: Compiling file index.js into ESM
+   0kB  docker_dist\package.json
+  39kB  docker_dist\client-dist/socket.io.esm.min.js
+  46kB  docker_dist\client-dist/socket.io.min.js
+  49kB  docker_dist\client-dist/socket.io.msgpack.min.js
+ 151kB  docker_dist\client-dist/socket.io.js
+ 189kB  docker_dist\client-dist/socket.io.esm.min.js.map
+ 192kB  docker_dist\client-dist/socket.io.min.js.map
+ 203kB  docker_dist\client-dist/socket.io.msgpack.min.js.map
+ 301kB  docker_dist\client-dist/socket.io.js.map
+3471kB  docker_dist\index.js
+4641kB  [1940ms] - ncc 0.38.3
+
+  docker_dist\index.min.js  2.3mb
+
+Done in 2747ms
+
+[javascript-obfuscator-cli] Obfuscating file: docker_dist\index.min.js... 
 1 - public:success 

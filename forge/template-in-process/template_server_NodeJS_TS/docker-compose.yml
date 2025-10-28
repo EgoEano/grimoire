@@ -18,7 +18,7 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./docker/db-init:/docker-entrypoint-initdb.d
     ports:
-      - ${POSTGRES_DB_PORTS}
+      - ${DOCKER_POSTGRES_DB_PORTS}
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]

@@ -9,7 +9,7 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 # Now the build is performed outside of Docker 
-COPY dist/ ./
+COPY docker_dist/ ./
 
 RUN npm cache clean --force \
     && npm install dotenv bcrypt --omit=dev
@@ -20,7 +20,7 @@ FROM alpine:latest
 # Setting group and user for Node
 RUN addgroup -g 1000 node && adduser -u 1000 -G node -s /bin/sh -D node
 
-RUN apk add --no-cache nodejs
+RUN apk add --no-cache nodejs libstdc++
 
 WORKDIR /app
 COPY --from=build /app ./
