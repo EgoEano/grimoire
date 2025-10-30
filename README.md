@@ -20,7 +20,7 @@ It’s designed as a **reference library** — a grimoire to return to when memo
 |--------|--------------|
 | **`forge/`** | Raw developments and experiments. |
 | **`forge/utils/`** | Handy code snippets and small reusable utilities. |
-| **`forge/template-in-process/`** | Вevelopments and templates in intermediate stages. |
+| **`forge/template-in-process/`** | Developments and templates in intermediate stages. |
 | **`knowledge/`** | Base of initial and theoretical knowledge. |
 | **`knowledge/alma-mater/`** | Core algorithms, data structures, and theoretical notes. |
 | **`knowledge/methods-and-instructions/`** | Step-by-step guides and system setup notes (Docker, SSL, WSL, etc). |
