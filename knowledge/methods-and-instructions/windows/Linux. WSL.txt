@@ -1,0 +1,5 @@
+1. Launch PowerShell
+2. wsl.exe -d Ubuntu
+2.1 If wsl is not installed
+	wsl --install
+3. Ready

@@ -24,6 +24,15 @@ export default class MainController {
     async getHealthStatus(req: Request, res: Response) {
         res.status(200).json({ status: 'ok' });
     };
+
+    async getFavicon(req: Request, res: Response) {
+        res.status(204).end();
+    };
+
+    async getInfo(req: Request, res: Response) {
+        const { code, msg } = req.query;
+        res.status(200).json({ code, message: msg });
+    };
 }
 
 

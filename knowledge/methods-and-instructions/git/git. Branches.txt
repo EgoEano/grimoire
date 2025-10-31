@@ -1,0 +1,30 @@
+- Create and select branch
+	1. git branch branchName - creating branchName
+	2. git checkout NAME
+		where NAME - select branch NAME
+	(git checkout -b branchName - creating and selecting branch)
+
+
+- Git merge
+	1. git checkout NAME - Move to NAME branch
+	2. git merge branchName - merging current branch with branchName
+
+
+- Branch details
+	1. git branch PARAM - shows branches of repo
+		where
+			without args — shows only local branches
+			-r - shows only remote branches
+			-a - shows all branches
+			-vv - shows details about local branches
+
+
+- Show all differences in branch
+	1. git diff 
+	или
+	1. git diff --staged (show staged but not commited)
+
+
+- Branch deleting
+	1. git branch -d <branch_name> (for deleting selected branch, you have to stay in another)
+	2. (Optionally) git push origin --delete <branch_name> (deleting branch in remote repo)

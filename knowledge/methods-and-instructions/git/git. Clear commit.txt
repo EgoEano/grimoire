@@ -1,0 +1,12 @@
+# 1. Добавь node_modules в .gitignore
+echo "node_modules/" >> .gitignore
+
+# 2. Удали node_modules из индекса (но не с диска)
+git rm -r --cached node_modules
+
+# 3. Добавь .gitignore и обновлённый индекс
+git add .gitignore
+git add .
+
+# 4. Перезапиши последний коммит
+git commit --amend -m "Удален node_modules из коммита"
