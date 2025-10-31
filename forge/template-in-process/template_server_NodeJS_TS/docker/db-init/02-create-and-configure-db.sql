@@ -1,5 +1,0 @@
-DO $$ 
-BEGIN
-    RAISE INFO '>>>>>LOG - CONFIGURE DB';
-END $$;
-
