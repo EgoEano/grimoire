@@ -1,10 +1,6 @@
 # Initialize project
 	npm init -y
 	
-	
-# Main packs
-	npm install react react-dom
-	
 # Dev packs
 	npm install --save-dev dotenv cross-env
 	
@@ -14,8 +10,13 @@
 # Create webpack.config.ts
 
 # For TypeScript
-	npm install --save-dev typescript ts-loader @types/react @types/react-dom ts-node @types/node
-
+	npm install --save-dev typescript ts-loader ts-node @types/node
 
 # Configure TypeScript
 	npx tsc --init
+
+# Change type in package.json
+	"type": "module"
+
+# Main packs (react logic)
+	npm install react react-dom react-router-dom react-native react-native-web

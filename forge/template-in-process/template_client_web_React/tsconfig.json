@@ -8,7 +8,8 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "ESNext",
-    "target": "ES2020",
+    "target": "esnext",
+    "moduleResolution": "bundler",
     "types": [],
 
     // Other Outputs
@@ -23,12 +24,15 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
+    "lib": ["dom", "esnext"],
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       // === CLIENT ===
