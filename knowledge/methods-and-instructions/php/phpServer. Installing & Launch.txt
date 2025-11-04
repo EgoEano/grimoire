@@ -1,0 +1,37 @@
+Launch:
+ssh -i ~/.ssh/filekey root@91.99.200.132
+cd /var/www/ideliver_proj/export_idlvr/
+nohup php artisan serve --host=91.99.200.132 --port=8000 > server.log 2>&1 &
+
+
+
+Installation:
+scp -i ~/.ssh/filekey /mnt/c/Projects/docker_export/export_idlvr.tar root@91.99.200.132:/var/www/
+ssh -i ~/.ssh/filekey root@91.99.200.132
+
+sudo apt update && sudo apt upgrade -y
+
+sudo apt install -y php php-cli php-common php-fileinfo php-mbstring php-xml php-tokenizer php-sodium php-common php-bcmath php-curl php-openssl php-zip php-pgsql php-gd php-intl php-readline php-soap php-tokenizer unzip curl
+
+sudo apt install -y postgresql postgresql-contrib
+sudo -u postgres psql
+CREATE DATABASE laravel;
+CREATE USER laravel_user WITH PASSWORD 'your_secure_password';
+GRANT ALL PRIVILEGES ON DATABASE laravel TO laravel_user;
+GRANT ALL ON SCHEMA public TO laravel_user;
+\q
+
+cd ~
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+
+sudo chown -R www-data:www-data /var/www/laravel
+sudo chmod -R 755 /var/www/laravel
+sudo chmod -R 775 /var/www/laravel/storage /var/www/laravel/bootstrap/cache
+
+composer install --optimize-autoloader --no-interaction
+
+\c wecourier
+GRANT ALL PRIVILEGES ON SCHEMA public TO laravel_user;
+ALTER SCHEMA public OWNER TO laravel_user;
+php artisan serve --host=91.99.200.132 --port=8000

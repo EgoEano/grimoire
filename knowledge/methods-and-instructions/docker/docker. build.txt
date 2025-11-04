@@ -1,0 +1,8 @@
+1. Publish the project (App_project_build) into the dist directory.
+2. For anything that vercel/ncc couldn't bundle into the project — add it as a parameter (--external <name>) and also add it to the Dockerfile (npm install <name>).
+
+3. Navigate to the project directory.
+4. To clean up old builds
+    docker-compose down
+5. To build and launch the project
+    docker-compose up --build -d  - 
