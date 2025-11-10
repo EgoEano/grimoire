@@ -264,61 +264,83 @@ export class AuthService {
     //#endregion
 
     async authFetch<T=any>(opts: FetchRequestOptions): Promise<FetchResponse<T>> {
-        if (!opts?.url || opts.url?.length == 0) {
-            return {
-                success: false,
-                status: 400,
-                message: 'need_to_set_url',
-            };
-        }
-        
-        const localTokens = await this.getTokens();
-        const firstAccessToken = localTokens?.access;
-        if (!firstAccessToken) {
-            return {
-                success: false,
-                status: 401,
-                message: 'lost_or_expired_access_token',
-            };
-        }
-
-        if (opts.url.startsWith('/')) {
-            opts.url = this.server.getBaseUrl() + opts.url;
-        }
-
-
-        const firstFetch = await fetchRequest<T>({
-            ...opts,
-            headers: {
-                ...(opts.headers || {}),
-                'Authorization': `Bearer ${firstAccessToken}`,
+        try {
+            if (!opts?.url || opts.url?.length == 0) {
+                return {
+                    success: false,
+                    status: 400,
+                    message: 'need_to_set_url',
+                };
             }
-        });
-
-        if (firstFetch.success) {
-            return firstFetch;
-        }
-
-        if (firstFetch.status === 401) {
-            const isServerRestored = await this.restoreServerSession();
-            if (!isServerRestored) return firstFetch;
-
-            const newTokens = await this.getTokens();
-            const newAccessToken = newTokens?.access;
-
-            const secondFetch = await fetchRequest<T>({
+            
+            const localTokens = await this.getTokens();
+            const firstAccessToken = localTokens?.access;
+            if (!firstAccessToken) {
+                return {
+                    success: false,
+                    status: 401,
+                    message: 'lost_or_expired_access_token',
+                };
+            }
+    
+            if (opts.url.startsWith('/')) {
+                opts.url = this.server.getBaseUrl() + opts.url;
+            }
+    
+    
+            const firstFetch = await fetchRequest<T>({
                 ...opts,
                 headers: {
                     ...(opts.headers || {}),
-                    'Authorization': `Bearer ${newAccessToken}`,
+                    'Authorization': `Bearer ${firstAccessToken}`,
                 }
             });
-
-            if (secondFetch.status === 401) {
-                await this.local.logout();
-            } 
-            
-            return secondFetch;
-        } else return firstFetch;
+    
+            if (firstFetch.success) {
+                opts.onSuccess?.(firstFetch);
+                return firstFetch;
+            }
+    
+            if (firstFetch.status === 401) {
+                const isServerRestored = await this.restoreServerSession();
+                if (!isServerRestored) return firstFetch;
+    
+                const newTokens = await this.getTokens();
+                const newAccessToken = newTokens?.access;
+    
+                const secondFetch = await fetchRequest<T>({
+                    ...opts,
+                    headers: {
+                        ...(opts.headers || {}),
+                        'Authorization': `Bearer ${newAccessToken}`,
+                    }
+                });
+    
+                if (secondFetch.success) {
+                    opts.onSuccess?.(secondFetch);
+                    return secondFetch;
+                }
+    
+                if (secondFetch.status === 401) {
+                    await this.local.logout();
+                } 
+                
+                opts.onError?.(secondFetch.errors ?? []);
+                return secondFetch;
+    
+            } else {
+                opts.onError?.(firstFetch.errors ?? []);
+                return firstFetch;
+            }
+        } catch (err: any) {
+            opts.onError?.(err);
+            return {
+                success: false,
+                status: 500,
+                message: err.message || 'NETWORK_ERROR',
+            };
+        } finally {
+            opts.onFinally?.();
+        }
     }
 }
