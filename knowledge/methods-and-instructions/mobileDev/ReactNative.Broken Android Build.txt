@@ -1,0 +1,23 @@
+1. Remove bad package
+	npm uninstall <name>
+
+2. Remove folders
+	/android/.gradle
+	/android/build
+	/android/app/build
+	/android/app/.cxx
+
+2.1 Optionally - Reinstall npm packages
+2.1.1 Remove 
+	/node_modules
+	/package-lock.json
+2.1.2 Reinstall
+	npm install
+	
+3. Clear Gradle artifacts
+	android/gradlew clean
+	
+4. Rebuild project
+	npx react-native run-android
+	
+5. Done
