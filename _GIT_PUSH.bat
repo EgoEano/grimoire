@@ -7,7 +7,7 @@ git add .
 git diff --cached --quiet
 if %errorlevel%==0 (
     echo "Nothing to commit"
-	timeout /t 20
+	pause
     exit /b
 )
 	
