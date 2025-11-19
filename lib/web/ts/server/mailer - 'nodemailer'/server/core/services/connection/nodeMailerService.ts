@@ -1,3 +1,5 @@
+// v1.0.0
+
 import nodemailer, { Transporter } from "nodemailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 

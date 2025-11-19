@@ -5,10 +5,11 @@ import React, {
     useCallback, 
     useMemo,
     useEffect,
-    ReactNode,
     useRef
  } from "react";
 import { Dimensions } from 'react-native';
+
+import type { ReactNode } from 'react';
 
 
 interface StyleProviderContext {
@@ -36,7 +37,7 @@ interface CustomDimensions {
 const getScreenCategory = (width?: number | null): ScreenCategory =>  (width ?? Dimensions.get('window').width) < 1000 ? "compact" : "spacious";  
 const getDimensions = (): CustomDimensions => {
     const wndw = Dimensions.get('window');
-    const vv = (global as any).visualViewport;
+    const vv = (globalThis as any).visualViewport;
     return {
         width: wndw.width,
         height: wndw.height,
@@ -100,7 +101,6 @@ export const StyleProvider = ({children}: { children: ReactNode }) => {
         return result;
     }, [version]);
 
-    // слушатель измениния размера
     useEffect(() => {
         const handleResize = (dims: DimensionsArgs) => {
             if (!dims.window) return;

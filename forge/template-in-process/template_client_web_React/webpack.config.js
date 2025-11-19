@@ -12,7 +12,7 @@ import dotenv from 'dotenv';
 const clientDevView = "index";
 
 const clientEntries = {
-    index: "./client/modules/index/index.jsx",
+    index: "./index-web.ts",
 };
 
 
@@ -97,9 +97,11 @@ const clientConfig = {
         extensions: ['.web.js', '.js', '.jsx', '.ts', '.tsx'],
         alias: {
             '@root': path.resolve(__dirname),
+            '@client': path.resolve(__dirname, 'client/'),
             '@styles': path.resolve(__dirname, 'client/core/ui/styles/'),
             '@ui': path.resolve(__dirname, 'client/core/ui/'),
             '@app': path.resolve(__dirname, 'client/modules/'),
+            'react-native/Libraries/Renderer/shims/ReactNative': 'react-native-web/dist/cjs/exports/ReactNative',
             'react-native$': 'react-native-web',
           }
     },
@@ -185,7 +187,12 @@ const clientConfig = {
                 exclude: /(node_modules)/, 
                 loader: "babel-loader",   
                 options:{
-                    presets:[ "@babel/preset-react"] 
+                    presets:[ 
+                        "@babel/preset-env",
+                        "@babel/preset-react",
+                        "@babel/preset-typescript"
+                  
+                    ] 
                 }
             },
             {

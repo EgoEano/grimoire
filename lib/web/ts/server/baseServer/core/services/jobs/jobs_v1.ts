@@ -1,9 +1,0 @@
-
-export function startAllJobs() {
-    try {
-		// Put all jobs here
-        console.log('JOBS - All jobs started');
-    } catch (e) {
-        console.error('JOBS - Failed to start jobs:', e);
-    }
-}

@@ -1,13 +1,17 @@
-import React, { Children, Dispatch, SetStateAction, useMemo } from 'react';
+import React, { Children, useMemo } from 'react';
 import {
   Pressable,
   Text,
-  ViewStyle,
-  TextStyle,
-  GestureResponderEvent,
   StyleSheet,
   View,
   ScrollView,
+} from 'react-native';
+
+import type { Dispatch, SetStateAction } from 'react';
+import type {
+  ViewStyle,
+  TextStyle,
+  GestureResponderEvent,
 } from 'react-native';
 
 

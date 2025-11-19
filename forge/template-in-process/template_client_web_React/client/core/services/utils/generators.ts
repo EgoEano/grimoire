@@ -1,9 +1,9 @@
-import 'react-native-get-random-values';
-import { v4 as uuidv4 } from 'uuid';
+// import 'react-native-get-random-values';
+// import { v4 as uuidv4 } from 'uuid';
 
-export function generateUUID(): string {
-    return uuidv4();
-}
+// export function generateUUID(): string {
+//     return uuidv4();
+// }
 
 // export function generateRandomString(length: number, chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'): string {
 //     let result = '';

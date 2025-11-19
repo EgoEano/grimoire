@@ -9,8 +9,3 @@ if %ERRORLEVEL% neq 0 (
     echo 0 - public:client:build > log_app_build.txt
     exit /b 1
 )
-
-if exist dist\public rd /s /q dist\public
-xcopy /E /I /Y public dist\public
-
-

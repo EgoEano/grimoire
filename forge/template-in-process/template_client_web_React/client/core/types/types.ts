@@ -1,16 +1,12 @@
-import type { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+declare global {
+    interface Window {
+      root: import('react-dom/client').Root;
+    }
+}
 
-export type RouteNode = {
-  name: string;
-  component?: React.ComponentType<any>;
-  children?: RouteNode[];
-  optionsNavigator?: NavigatorOptions; 
-  options?: NativeStackNavigationOptions; 
-};
-
-export type StackType = 'stack' | 'tabs' | 'drawer' | null | undefined;
-
-export type NavigatorOptions = {
-  type: StackType, 
-  options: NativeStackNavigationOptions; 
+export interface RouteNode {
+    path: string;
+    children?: RouteNode[];
+    component?: React.ComponentType;
+    options?: any;
 };

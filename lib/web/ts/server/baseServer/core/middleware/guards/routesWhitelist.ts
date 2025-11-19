@@ -1,10 +1,11 @@
+// v1.0.0
 
+import Logger from '../loggers/loggerService';
 import type {
     RoutesWhitelistOptions,
     Route,
     AllowedRoute
 } from '../../types/types';
-import Logger from '../loggers/loggerService.js';
 
 export function initRoutesWhitelist(
     {app, admittedRoutes = []}: RoutesWhitelistOptions

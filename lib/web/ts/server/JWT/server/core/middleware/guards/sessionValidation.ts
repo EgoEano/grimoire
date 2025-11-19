@@ -1,3 +1,5 @@
+// v1.0.0
+
 import crypto from "crypto";
 
 import Logger from "../loggers/loggerService.js";

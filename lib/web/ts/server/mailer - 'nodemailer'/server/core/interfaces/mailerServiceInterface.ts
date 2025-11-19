@@ -1,3 +1,5 @@
+// v1.0.0
+
 import { NodeMailerService } from "../services/connection/nodeMailerService.js";
 import { SendResult } from "../services/connection/nodeMailerService.js";
 

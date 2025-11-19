@@ -6,7 +6,7 @@
   "scripts": {
     "client:start:dev": "cross-env NO_COLOR=true NODE_ENV=development webpack serve --config-name client --mode development",
     "client:build:prod": "cross-env NO_COLOR=true NODE_ENV=production webpack --mode production --config-name client",
-    "client:build:dev": "cross-env NO_COLOR=true NODE_ENV=development webpack --mode production --config-name client",
+    "client:build:dev": "cross-env NO_COLOR=true NODE_ENV=development webpack --mode development --config-name client",
     "client:build:devFull": "cross-env NO_COLOR=true NODE_ENV=development webpack --mode production --config-name client --profile --json"
   },
   "keywords": [],
@@ -21,8 +21,14 @@
     "react-router-dom": "^7.9.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.3",
+    "babel-loader": "^10.0.0",
     "cross-env": "^10.1.0",
     "css-minimizer-webpack-plugin": "^7.0.2",
     "dotenv": "^17.2.3",

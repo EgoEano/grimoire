@@ -1,3 +1,5 @@
+// v1.0.0
+
 import axios, { AxiosResponse } from 'axios';
 import Logger from '../../middleware/loggers/loggerService.js';
 import { parseQueryString, getValueByPath } from '../utils/parsers.js';

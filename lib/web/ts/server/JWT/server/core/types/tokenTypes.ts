@@ -1,3 +1,5 @@
+// v1.0.0
+
 import type { 
     Secret, 
     Algorithm, 

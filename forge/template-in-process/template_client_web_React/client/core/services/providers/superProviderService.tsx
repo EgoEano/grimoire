@@ -1,11 +1,9 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { LanguageProvider } from './languageProviderService';
 import {SystemDataProvider} from './systemDataProviderService';
 import {StyleProvider} from './styleProvider';
-import {UserDataProvider} from './userDataProviderService';
-import { SocketProvider } from "./socketProvider";
-import { AuthFetchProvider } from "./authFetchProvider";
 
+import type { ReactNode } from "react";
 
 export function SuperProvider({ children }: { children: ReactNode }) {
     return (
@@ -13,13 +11,7 @@ export function SuperProvider({ children }: { children: ReactNode }) {
             <SystemDataProvider>
             <StyleProvider>
             <LanguageProvider>
-            <UserDataProvider>
-            <AuthFetchProvider>
-            <SocketProvider>
                 {children}
-            </SocketProvider>
-            </AuthFetchProvider>
-            </UserDataProvider>
             </LanguageProvider>
             </StyleProvider>
             </SystemDataProvider>

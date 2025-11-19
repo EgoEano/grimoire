@@ -1,3 +1,5 @@
+// v1.0.0
+
 import { handleFileUpload_Busboy } from '../core/service/common/fileUploader_Busboy.js';
 
 import type { UploadResult } from '../core/service/common/fileUploader_Busboy.js';

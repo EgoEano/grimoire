@@ -1,3 +1,5 @@
+// v1.0.0
+
 import axios, { AxiosResponse } from 'axios';
 import { redisClient } from '../connection/redisService.js';
 import Logger from '../../middleware/loggers/loggerService.js';
