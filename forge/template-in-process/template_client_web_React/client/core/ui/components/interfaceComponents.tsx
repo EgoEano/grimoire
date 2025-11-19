@@ -18,25 +18,25 @@ import type {
 //#region Atoms
 //#region Button
 type Props_ButtonStyleGroup = {
-  button?: ViewStyle;
-  text?: TextStyle;
-  pressed?: ViewStyle;
-  disabled?: ViewStyle;
+    button?: ViewStyle;
+    text?: TextStyle;
+    pressed?: ViewStyle;
+    disabled?: ViewStyle;
 };
 type Props_Button = {
-  title?: string;
-  onPress?: (event: GestureResponderEvent) => void;
-  onLongPress?: (event: GestureResponderEvent) => void;
-  disabled?: boolean;
-  android_ripple?: {
-    color?: string;
-    borderless?: boolean;
-    radius?: number;
-    foreground?: boolean;
-  };
-  style?: Props_ButtonStyleGroup;
-  textStyle?: TextStyle;
-  children?: React.ReactNode;
+    title?: string;
+    onPress?: (event: GestureResponderEvent) => void;
+    onLongPress?: (event: GestureResponderEvent) => void;
+    disabled?: boolean;
+    android_ripple?: {
+        color?: string;
+        borderless?: boolean;
+        radius?: number;
+        foreground?: boolean;
+    };
+    style?: Props_ButtonStyleGroup;
+    textStyle?: TextStyle;
+    children?: React.ReactNode;
 };
 
 const baseStyle_Button = StyleSheet.create({
@@ -134,16 +134,16 @@ export function Modal({
         if (closable) setIsShow?.(s => !s);
     };
 
-  if (!isShow) return null;
+    if (!isShow) return null;
 
-  return (
-    <Pressable
-      onPress={toggleShow}
-      style={style_inner.main}
-    >
-      {children}
-    </Pressable>
-  );
+    return (
+        <Pressable
+            onPress={toggleShow}
+            style={style_inner.main}
+        >
+            {children}
+        </Pressable>
+    );
 }
 //#endregion
 

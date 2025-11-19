@@ -1,43 +1,28 @@
 
 > template_client_web_react@1.0.0 client:build:dev
-> cross-env NO_COLOR=true NODE_ENV=development webpack --mode production --config-name client
+> cross-env NO_COLOR=true NODE_ENV=development webpack --mode development --config-name client
 
-[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
 client:
-  assets by path index/ 1.11 MiB
-    asset index/index.js 1.11 MiB [emitted] [big] (name: index) 1 related asset
+  assets by path index/ 1.9 MiB
+    asset index/index.js 1.9 MiB [emitted] (name: index) 1 related asset
     asset index/index.html 461 bytes [emitted]
-  asset runtime/runtime.js 6.37 KiB [emitted] (name: runtime) 1 related asset
-  asset favicon.png 4.02 KiB [emitted]
-  Entrypoint index [big] 1.12 MiB (1.36 MiB) = runtime/runtime.js 6.37 KiB index/index.js 1.11 MiB 2 auxiliary assets
-  orphan modules 1.21 MiB [orphan] 246 modules
-  runtime modules 3.33 KiB 6 modules
-  cacheable modules 1.11 MiB
-    modules by path ./node_modules/inline-style-prefixer/lib/ 10.6 KiB 12 modules
-    modules by path ./node_modules/react-dom/ 533 KiB 4 modules
-    modules by path ./node_modules/css-in-js-utils/ 7.67 KiB 3 modules
-    modules by path ./node_modules/react/ 17 KiB 2 modules
-    modules by path ./node_modules/styleq/dist/*.js 7.03 KiB
-      ./node_modules/styleq/dist/transform-localize-style.js 1.9 KiB [built] [code generated]
-      ./node_modules/styleq/dist/styleq.js 5.14 KiB [built] [code generated]
-    modules by path ./node_modules/scheduler/ 10.1 KiB
-      ./node_modules/scheduler/index.js 194 bytes [built] [code generated]
-      ./node_modules/scheduler/cjs/scheduler.production.js 9.94 KiB [built] [code generated]
-    + 4 modules
-
-  WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
-  This can impact web performance.
-  Assets: 
-    index/index.js (1.11 MiB)
-
-  WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
-  Entrypoints:
-    index (1.12 MiB)
-        runtime/runtime.js
-        index/index.js
-
-  WARNING in webpack performance recommendations: 
-  You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
-  For more info visit https://webpack.js.org/guides/code-splitting/
-
-  client (webpack 5.102.1) compiled with 3 warnings in 1986 ms
+  asset runtime/runtime.js 6.71 KiB [emitted] (name: runtime) 1 related asset
+  asset favicon.png 4.02 KiB [compared for emit]
+  Entrypoint index 1.9 MiB (2.14 MiB) = runtime/runtime.js 6.71 KiB index/index.js 1.9 MiB 2 auxiliary assets
+  orphan modules 604 KiB [orphan] 143 modules
+  runtime modules 3.46 KiB 7 modules
+  cacheable modules 1.76 MiB
+    modules by path ./node_modules/ 1.72 MiB 120 modules
+    modules by path ./client/ 48.6 KiB
+      modules by path ./client/core/ 35 KiB
+        ./client/core/services/providers/superProviderService.tsx 648 bytes [built] [code generated]
+        + 5 modules
+      modules by path ./client/modules/ 1.8 KiB
+        modules by path ./client/modules/main/*.tsx 1.38 KiB 2 modules
+        + 2 modules
+      modules by path ./client/app/*.tsx 11.7 KiB
+        ./client/app/App.tsx 438 bytes [built] [code generated]
+        + 2 modules
+    ./index-web.ts 49 bytes [built] [code generated]
+  client (webpack 5.102.1) compiled successfully in 2004 ms
