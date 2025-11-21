@@ -165,7 +165,7 @@ export function DialogView({
                     }}
                     onPress={handleConfirm}
                 />
-                {(type === 'confirm' && onCancel) && <Button 
+                {(type === 'confirm') && <Button 
                     title={cancelText} 
                     style={{
                         button: style.confirmButton
