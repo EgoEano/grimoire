@@ -1,0 +1,47 @@
+{
+  "name": "online_radio_player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client:start:dev": "cross-env NO_COLOR=true NODE_ENV=development webpack serve --config-name client --mode development",
+    "client:build:prod": "cross-env NO_COLOR=true NODE_ENV=production webpack --mode production --config-name client",
+    "client:build:dev": "cross-env NO_COLOR=true NODE_ENV=development webpack --mode development --config-name client",
+    "client:build:devFull": "cross-env NO_COLOR=true NODE_ENV=development webpack --mode production --config-name client --profile --json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-native-community/slider": "^5.1.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-native": "^0.82.1",
+    "react-native-web": "^0.21.2",
+    "react-router-dom": "^7.9.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.3",
+    "babel-loader": "^10.0.0",
+    "cross-env": "^10.1.0",
+    "css-minimizer-webpack-plugin": "^7.0.2",
+    "dotenv": "^17.2.3",
+    "html-webpack-plugin": "^5.6.4",
+    "mini-css-extract-plugin": "^2.9.4",
+    "ts-loader": "^9.5.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2",
+    "webpack-obfuscator": "^3.5.1"
+  }
+}

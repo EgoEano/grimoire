@@ -1,4 +1,4 @@
-import { Button, View, ModalCard, Card } from "@client/core/ui/components/interfaceComponents";
+import { Button, View, ModalCard } from "@client/core/ui/components/interfaceComponents";
 import React, { useEffect } from "react";
 import { Text, StyleSheet } from "react-native";
 
@@ -45,8 +45,13 @@ const style = StyleSheet.create({
         maxWidth: 500,
     },
     notifyCard: {
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        borderColor: '#000',
+        borderWidth: 1,
         paddingVertical: 8,
         paddingHorizontal: 16,
+        margin: 3,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
@@ -104,14 +109,10 @@ export function NotifyCard({
     }, []);
 
     return (
-        <Card 
-            style={{
-                card: style.notifyCard
-            }}
-        >
+        <View style={style.notifyCard}>
             {header && <Text>{header}</Text>}
             <Text>{message}</Text>
-        </Card>
+        </View>
     );
 }
 
