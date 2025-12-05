@@ -1,0 +1,6 @@
+
+> template@0.0.1 web:build:dev
+> cross-env NO_COLOR=true NODE_ENV=development webpack --mode development --config-name client
+
+'cross-env' is not recognized as an internal or external command,
+operable program or batch file.

@@ -11,19 +11,19 @@ WARNING!!! A shorter project path helps avoid Windows’ 260-character limit, wh
 
 3. To run the project (on Android):
 	npx react-native run-android
+
+4. When the clean project runs without issues, copy the files from the template into the root of the project with replacement, and remove this files from project:
+	App.tsx
+	babel.config.js
+	jest.config.js
+	tsconfig.json
+
+5. Install new packages
+	npm i
 	
-4. When the clean project runs without issues, copy the files from the template into the root of the project with replacement, and install the packages
-	npm install
-	
-5. Rename metro.config.js -> metro.config.сjs
+6. For dev server mode with web, build dev at first:
+	_web_build_dev.bat
+And after that you can use 
+	_web_start_dev.bat
 
-N. Done. The project is ready to use
-////////////
-
-Launching tools separately
-In the container, start only the Metro server:
-	npx react-native start [ --reset-cache]
-		where:  --reset-cache is an optional parameter to clear the metro cache before launch
-
-On the host machine, start only the build (default Metro port is 8081):
-		npx react-native run-android --port 8081
+7. Done. The project is ready to use
