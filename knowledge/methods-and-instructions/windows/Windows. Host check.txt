@@ -1,0 +1,14 @@
+1. cmd - "systeminfo"
+
+Virtual:
+
+System Manufacturer:       Microsoft Corporation //Изготовителем выступает Microsoft Corporation
+System Model:              Virtual Machine  //Явный показатель 
+System Type:               x64-based PC
+
+
+Hardware:
+
+System Manufacturer:       HP //Или другой изготовитель машины
+System Model:              ProLiant BL460c G6 //Или другая модель машины
+System Type:               x64-based PC
