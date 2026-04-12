@@ -1,0 +1,6 @@
+1. Find the process that occupy the port
+    netstat -ano | findstr :<PORT>
+2. In result get PID of process (target) 
+3. Kill the process 
+    taskkill /PID <PID> /F
+4. Done
