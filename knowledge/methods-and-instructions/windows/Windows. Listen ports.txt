@@ -1,0 +1,4 @@
+1. cmd
+2. netstat -ano
+3. Get PID of row
+- >tasklist | findstr <PID> - which process
