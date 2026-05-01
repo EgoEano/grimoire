@@ -1,14 +1,14 @@
-Перезапуск сервера
+Reload server
 	adb kill-server
 	adb start-server
 
-Запуск без snapshot (state прошлого запуска)
+Run without snapshot
 	emulator -avd <device-name> -no-snapshot-load -no-boot-anim
 
-Удаляем снапшот
+Delete snapshot
 	del "%USERPROFILE%\.android\avd\<name_of_device>.avd\snapshots\default_boot\snapshot.pb"
 
-Перегенерация adbkey 
+Regenerate adbkey 
 	del %USERPROFILE%\.android\adbkey*
 	adb kill-server && adb start-server
 

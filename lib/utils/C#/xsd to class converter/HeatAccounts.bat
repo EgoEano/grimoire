@@ -1,0 +1,1 @@
+..\xsd.exe HeatAccounts.xsd /c /n:BillingModel.DBModel.HeatDesktop /o:..\..\Sources\BillingModel\DBModel\Desktop

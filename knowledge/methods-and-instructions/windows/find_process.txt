@@ -1,0 +1,4 @@
+- cmd
+- netstat -ano
+- Watching ip and port, PID - its an ID of process
+- tasklist | findstr <PID> - which process has this PID

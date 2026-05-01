@@ -1,0 +1,15 @@
+Код в батнике имеет вид :
+
+..\xsd.exe HeatAccounts.xsd /c /n:BillingModel.DBModel.HeatDesktop /o:..\..\Sources\BillingModel\DBModel\Desktop
+
+где:
+
+"..\xsd.exe": Это путь к утилите xsd.exe, которая находится на одну директорию выше текущей директории. (xsd.exe — это инструмент командной строки, который входит в состав SDK .NET и используется для создания классов C# на основе XML-схем (XSD)).
+
+"HeatAccounts.xsd": Это XML-схема (XSD файл), на основе которой будут генерироваться классы C#.
+
+"/c": Этот параметр указывает xsd.exe создать классы C# из указанной XSD схемы.
+
+"/n:BillingModel.DBModel.HeatDesktop": Этот параметр задает пространство имен (namespace) для создаваемых классов. В данном случае пространство имен будет BillingModel.DBModel.HeatDesktop.
+
+"/o:..\..\Sources\BillingModel\DBModel\Desktop": Этот параметр указывает выходную директорию, куда будут сохранены сгенерированные классы C#. (В данном случае это две директории выше текущей директории в папку "Sources\BillingModel\DBModel\Desktop").
