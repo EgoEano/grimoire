@@ -1,4 +1,4 @@
-# 🪶 Developer's Grimoire  
+# 🪶 Developer's Grimoire
 ### _Personal knowledge base and technical notes_
 
 > “Every engineer needs a grimoire — a place to preserve their hard-earned knowledge, insights, and experiments.”
